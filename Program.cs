@@ -111,22 +111,14 @@ class Program
         zoo.AddAnimal(new Parrot("Кеша", 3));
         zoo.AddAnimal(new Parrot("Ара", 15));
 
-        Console.WriteLine("=== Усі тварини зоопарку ===");
+        Console.WriteLine("Усі тварини:");
         zoo.PrintAnimals();
+
+        int n = 10;
+        zoo.RemoveOlderThan(n);
+
         Console.WriteLine();
-
-        int n;
-        Console.Write("Видалити тварин, старших за N років. Введіть N: ");
-        while (!int.TryParse(Console.ReadLine(), out n) || n < 0)
-        {
-            Console.Write("Потрібне ціле число від 0. Введіть N: ");
-        }
-
-        int removed = zoo.RemoveOlderThan(n);
-        Console.WriteLine($"Видалено тварин: {removed}");
-        Console.WriteLine();
-
-        Console.WriteLine($"=== Тварини після видалення (вік <= {n}) ===");
+        Console.WriteLine($"Після видалення тварин старших за {n}:");
         zoo.PrintAnimals();
     }
 }
